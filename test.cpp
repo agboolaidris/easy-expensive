@@ -6,8 +6,9 @@ int main()
     int b = 2;
     int c = a;
     b = c;
-    int file_size = 1000; // snake case
-    int FileSize = 1000;  // pascal case
+    int file_size = 1000; // Snake case
+    int FileSize = 1000;  // Pascal case
+    int fileSize = 1000;  // Camel case
     ::cout << a;
     return 0;
 }
