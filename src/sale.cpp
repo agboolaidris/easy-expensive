@@ -3,8 +3,8 @@ using namespace std;
 int main()
 {
     double sales = 95000;
-    int state_tax_percentage = 4;
-    int country_tax_percentage = 2;
+    const double state_tax_percentage = 4;
+    const double country_tax_percentage = 2;
 
     double state_tax_amount = (sales * state_tax_percentage) / 100;
 
