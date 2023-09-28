@@ -81,7 +81,9 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                       </button>
                     </div>
                   </Transition.Child>
-                  <DashboardSidebar />
+                  <DashboardSidebar
+                    closeSidebar={() => setSidebarOpen((prev) => !prev)}
+                  />
                 </Dialog.Panel>
               </Transition.Child>
             </div>

@@ -1,5 +1,7 @@
 import { Bars3Icon } from '@heroicons/react/24/outline';
 
+import { Logo } from './Logo';
+
 type DashboardNavbarProp = {
   setSidebarOpen: (open: boolean) => void;
 };
@@ -15,6 +17,9 @@ export const DashboardNavbar = ({ setSidebarOpen }: DashboardNavbarProp) => {
         <span className="sr-only">Open sidebar</span>
         <Bars3Icon aria-hidden="true" className="h-6 w-6" />
       </button>
+      <div className="ml-auto">
+        <Logo />
+      </div>
     </div>
   );
 };

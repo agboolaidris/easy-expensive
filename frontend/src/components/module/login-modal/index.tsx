@@ -81,7 +81,7 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
         </div>
         <div className="flex gap-4">
           <Button
-            className="flex-1 border border-indigo-700  bg-transparent text-indigo-700"
+            className="flex-1 border border-indigo-700  bg-transparent text-indigo-700 hover:!bg-transparent"
             type="button"
           >
             Sign up
