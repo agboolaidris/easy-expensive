@@ -48,9 +48,19 @@ export const useAuth = () => {
     },
   });
 
+  const logout = () => {
+    localStorage.removeItem('accessToken');
+    queryClient.setQueryData(authQueryKey, {
+      accessToken: '',
+      isAuthenticated: false,
+      user: null,
+    });
+  };
+
   return {
     authState,
     isLoadingUser,
     login,
+    logout,
   };
 };

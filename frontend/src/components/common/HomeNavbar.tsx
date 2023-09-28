@@ -55,7 +55,12 @@ export const HomeNavbar = () => {
                   <Button block rounded>
                     Sign up
                   </Button>
-                  <Button block rounded variants="neutral">
+                  <Button
+                    block
+                    onClick={() => openModal({ modal: ModalTypes.LOGIN_MODAL })}
+                    rounded
+                    variants="neutral"
+                  >
                     Log in
                   </Button>
                 </div>

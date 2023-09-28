@@ -1,3 +1,4 @@
+import { PowerIcon } from '@heroicons/react/20/solid';
 import {
   BookOpenIcon,
   CalculatorIcon,
@@ -8,6 +9,7 @@ import {
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useAuth } from 'src/hooks/useAuth';
 
 import { Logo } from './Logo';
 
@@ -35,18 +37,23 @@ const sidebarLinks = [
   },
 ];
 
-export const DashboardSidebar = () => {
+type DashboardSidebarProps = {
+  closeSidebar?: () => void;
+};
+export const DashboardSidebar = ({ closeSidebar }: DashboardSidebarProps) => {
   const router = useRouter();
 
+  const { logout } = useAuth();
+
   return (
-    <div className="flex grow flex-col overflow-y-auto bg-gray-50  pb-4">
+    <div className="flex grow flex-col overflow-y-auto bg-gray-50">
       <div className="flex h-20 shrink-0 items-center  border-b-2 border-gray-200  px-6">
         <Logo />
       </div>
       <nav className="flex flex-1 flex-col">
         <ul className="flex flex-1 flex-col">
           {sidebarLinks.map((item) => (
-            <li key={item.name}>
+            <li key={item.name} onClick={closeSidebar}>
               <Link
                 className={classNames(
                   router.asPath === item.href
@@ -64,6 +71,19 @@ export const DashboardSidebar = () => {
               </Link>
             </li>
           ))}
+
+          <li
+            className={classNames(
+              'group mt-auto flex cursor-pointer gap-x-3 p-6 text-sm font-semibold leading-6 text-indigo-600 hover:opacity-75'
+            )}
+            onClick={logout}
+          >
+            <PowerIcon
+              aria-hidden="true"
+              className="h-6 w-6 shrink-0 text-indigo-600"
+            />
+            Logout
+          </li>
         </ul>
       </nav>
     </div>
